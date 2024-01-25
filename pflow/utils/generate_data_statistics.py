@@ -98,6 +98,7 @@ def main():
         cfg["batch_size"] = args.batch_size
         cfg["train_filelist_path"] = str(os.path.join(root_path, cfg["train_filelist_path"]))
         cfg["valid_filelist_path"] = str(os.path.join(root_path, cfg["valid_filelist_path"]))
+        cfg["num_workers"] = os.cpu_count()
 
     text_mel_datamodule = TextMelDataModule(**cfg)
     text_mel_datamodule.setup()
